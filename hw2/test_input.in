@@ -1,0 +1,107 @@
+create a.txt 1
+create b.txt 2
+create c.txt 3
+create c.txt 1
+create 4
+create d.txt 100
+create f.txt 20.0
+edit a.txt 5
+edit a.txt 5
+display yolo
+edit b.txt 5
+edit k.txt 10 
+display    
+add a.txt
+add b.txt
+add x.txt
+display
+display a.txt
+commit "added a.txt and b.txt"
+tag -a v1
+add c.txt
+commit
+tag -a v1.2 
+display d.txt
+commit "added c.txt"
+add f.txt
+commit "added f.txt"
+tag -a v3
+tag v3
+tag -a
+display 1
+display 2
+display 3
+display 0
+display 10
+display -1
+display v1   
+log
+tags
+checkout 1
+display
+checkout 2
+display
+checkout 0
+checkout
+display
+edit c.txt 10
+add a.txt
+commit "edited a.txt"
+display
+log
+tag -a v4
+checkout v5
+checkout v5
+display
+checkout v1
+display
+checkout v1.2
+display
+edit b.txt 10
+add b.txt
+commit "edited b.txt" test"
+display
+log
+checkout 5
+checkout invalidtag
+checkout 6
+tag
+display
+diff 0
+diff 1
+diff 0 1
+diff 1 0
+diff 10
+diff 1 10
+diff 10 1
+diff asdfj 5
+diff 5 aksdjf
+diff 
+diff 5
+diff 4
+diff 3
+diff 2
+diff 1
+checkout v1
+create e.txt 104
+add e.txt
+commit "added e.txt"
+display 6
+log
+checkout 4
+log
+diff 1
+diff 1 5
+diff 5 1
+diff 6
+checkout 3
+display
+cheagsk
+cs104
+yeet
+commit "this shouldnt work"
+add a.txt
+commit thisalso shouldnt work
+commit "only this should be in msg"not this"
+log
+quit
