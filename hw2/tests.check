@@ -1,0 +1,190 @@
+---------------Start Tests---------------------
+
+Testing constructor...
+-------------------------------------------
+Testing create...
+Error - Cannot be created: File already exists.
+Error - Invalid option
+Created files:
+a.txt : 1
+b.txt : 2
+c.txt : 100
+d.txt : 100
+f.txt : 20
+-------------------------------------------
+Testing edit...
+a.txt : 5
+Error - File does not exist
+Error - File does not exist
+---
+All files: 
+a.txt : 5
+b.txt : 5
+c.txt : 1
+d.txt : 100
+f.txt : 20
+-------------------------------------------
+Testing add...
+Error - File does not exist
+-------------------------------------------
+Testing commit and tag...
+All files:
+a.txt : 5
+b.txt : 5
+c.txt : 1
+d.txt : 100
+f.txt : 20
+---
+Error - No commit message was included.
+---
+Commit 1: 
+a.txt : 5
+b.txt : 5
+---
+Commit 2: 
+a.txt : 0
+b.txt : 0
+c.txt : 1
+---
+Commit 3: 
+a.txt : 0
+b.txt : 0
+c.txt : 0
+f.txt : 20
+---
+Error - Invalid commit number
+Error - Invalid commit number
+Error - Invalid commit number
+---
+Log:
+Commit: 3
+added f.txt
+
+Commit: 2
+added c.txt
+
+Commit: 1
+added a.txt and b.txt
+
+---
+Tags:
+v3
+v1.2
+v1
+-------------------------------------------
+Testing valid commit...
+1 1 0 1 0
+-------------------------------------------
+Testing checkout by ID...
+Files in Commit 1:
+a.txt : 5
+b.txt : 5
+---
+Files in Commit 2:
+a.txt : 5
+b.txt : 5
+c.txt : 1
+---
+Error - Invalid commit number
+Error - File does not exist
+---
+Current files: 
+a.txt : 10
+b.txt : 5
+---
+Error - File does not exist
+---
+Files in Commit 4
+a.txt : 10
+b.txt : 5
+---
+Log: 
+Commit: 4
+Edited a.txt
+
+Commit: 1
+added a.txt and b.txt
+
+-------------------------------------------
+Testing checkout by tag...
+Error - Invalid tag
+---
+Files in Commit 4:
+a.txt : 10
+b.txt : 5
+---
+Files in Commit 1:
+a.txt : 5
+b.txt : 5
+---
+Files in Commit 1:
+a.txt : 5
+b.txt : 5
+---
+Files in Commit 5:
+a.txt : 5
+b.txt : 10
+---
+Log:
+Commit: 5
+edited b.txt
+
+Commit: 1
+added a.txt and b.txt
+
+---
+Error - Invalid tag
+Error - Invalid commit number
+---
+Tags:
+v4
+v3
+v1.2
+v1
+-------------------------------------------
+Testing diff...
+Current files:
+a.txt : 5
+b.txt : 10
+---
+Error - Invalid commit number
+---
+Diff from Commit 1:
+b.txt : 5
+---
+Error - Invalid commit number
+---
+Error - Invalid commit number
+---
+Error - Invalid commit number
+---
+Error - Invalid commit number
+---
+Error - Invalid commit number
+---
+Diff between Commit 5:
+---
+Diff between Commit 4:
+a.txt : -5
+b.txt : 5
+---
+Diff between Commit 3:
+b.txt : 5
+---
+Diff between Commit 2:
+b.txt : 5
+---
+Log:
+Commit: 1
+added a.txt and b.txt
+
+---
+Diff between Commit 1: 
+---
+b.txt : -5
+comm 3:
+a.txt : 5
+b.txt : 5
+c.txt : 1
+f.txt : 20
+--------------------End Tests---------------------
