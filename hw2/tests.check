@@ -78,6 +78,8 @@ a.txt : 5
 b.txt : 5
 c.txt : 1
 ---
+Files in Commit 0:
+---
 Error - File does not exist
 ---
 Current files: 
@@ -139,13 +141,17 @@ Current files:
 a.txt : 5
 b.txt : 10
 ---
+Diff from commit 0:
 a.txt : 5
 b.txt : 10
 ---
 Diff from Commit 1:
 b.txt : 5
 ---
+Diff between 0 and 1:
+Error - Invalid commit number
 ---
+Diff between 1 and 0:
 a.txt : 5
 b.txt : 5
 ---
@@ -174,8 +180,8 @@ added a.txt and b.txt
 ---
 Diff between Commit 1: 
 ---
-b.txt : -5
-comm 3:
+Error - Invalid commit number
+Files in Commit 3:
 a.txt : 5
 b.txt : 5
 c.txt : 1
