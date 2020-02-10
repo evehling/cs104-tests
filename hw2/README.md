@@ -1,7 +1,7 @@
 ## GitInt gtests
 The **gtest** folder contains what you need to run tests. Each test function in the GitIntTestSuite class tests a different function in gitint.cpp; there are 9 total tests in the test case and the tests are named accordingly so that you can quickly see which gitint functions are causing your errors (ie. testCommit tests the commit() function). These tests are more thorough than the previous ones I wrote and will also test to make sure you're throwing the correct exceptions for each function. 
 ## To run:
-1. Make sure the **gtest.cpp** and the **Makefile** are in a folder with your **gitint.cpp** and **gitint.h** files (make sure any other makefiles you have in the folder are moved temporarily)
+1. Make sure the **gtest.cpp** and the **Makefile** are in the same directory as your **gitint.cpp** and **gitint.h** files (make sure any other makefiles you have in the folder are moved temporarily)
 2. In a terminal or docker container, navigate to the directory and type **make**
 3. The test results should display directly in your terminal. If your output does not match the expected output, gtest will It display the expected and actual output side by side and the test will be marked as failed. 
 
