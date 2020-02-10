@@ -25,12 +25,6 @@ int main()
       catch(std::invalid_argument& e){
         print_exception_message(e.what());
       }
-      try{
-        g.create("",4);
-      }
-      catch(std::invalid_argument& e){
-          print_exception_message(e.what());
-      }
       g.create("d.txt", 100);
       g.create("f.txt", 20.0);
       cout << "Created files:" << endl;
@@ -84,9 +78,9 @@ int main()
         print_exception_message(e.what());
     }
     g.create_tag("v1.2",1); //COMMIT 1: v1.2
-    g.commit("added c.txt");//COMMIT 2: a.txt=5 b.txt=5 c.txt=1
+    g.commit("added c.txt");//COMMIT 2: <a.txt=5 b.txt=5> c.txt=1
     g.add("f.txt");
-    g.commit("added f.txt");//COMMIT 3= a.txt=5 b.txt=5 c.txt=1 f.txt=20
+    g.commit("added f.txt");//COMMIT 3= <a.txt=5 b.txt=5 c.txt=1> f.txt=20
     g.create_tag("v3",3); //COMMIT 3: v3
     cout << SM_DIV;
     cout << "Commit 1: "<< endl;
@@ -149,12 +143,14 @@ int main()
     g.checkout(2);
     g.display_all();
     cout << SM_DIV;
+    cout << "Files in Commit 0:" << endl;
     try{
       g.checkout(0);
     }
     catch(std::invalid_argument& e){
       print_exception_message(e.what());
     }
+    cout <<SM_DIV;
     g.checkout(1);  
     g.edit("a.txt", 10);
     try{
@@ -174,7 +170,7 @@ int main()
       print_exception_message(e.what());
     }
     g.add("a.txt");
-    g.commit("Edited a.txt");//COMMIT 4 ; a=10,b=5
+    g.commit("Edited a.txt");//COMMIT 4 ; a=10,<b=5>
     cout << SM_DIV;
     cout << "Files in Commit 4" << endl;
     g.display_all();
@@ -205,14 +201,14 @@ int main()
   cout << SM_DIV;
   g.edit("b.txt", 10);
   g.add("b.txt");
-  g.commit("edited b.txt"); //COMMIT 5: a=5, b=10
+  g.commit("edited b.txt"); //COMMIT 5: <a=5>, b=10
   cout << "Files in Commit 5:" << endl;
   g.display_all();
   cout << SM_DIV;
   cout << "Log:" << endl;
   g.log();
   cout << SM_DIV;
-  g.checkout(5);
+  g.checkout(5); //Commit 5 is checked out: should comtain a=5, b=10
   try{
     g.checkout("fake-checkout"); 
   }
@@ -231,27 +227,30 @@ int main()
   cout << DIVIDER;
   cout  <<  "Testing diff..." << endl;
   cout << "Current files:" << endl;
-  g.display_all();
+  g.display_all(); //should be a=5, b=10
   cout << SM_DIV;
+  cout << "Diff from commit 0:" << endl;
   try{
-    g.diff(0);
+    g.diff(0); //should be a=5 b=10
   }
   catch(std::invalid_argument& e){
     print_exception_message(e.what());;
   }
   cout << SM_DIV;
   cout << "Diff from Commit 1:" << endl;
-  g.diff(1);
+  g.diff(1); //should be b=10
   cout << SM_DIV;
+  cout << "Diff between 0 and 1:" << endl;
   try{
-    g.diff(0,1);
+    g.diff(0,1); //fix
   }
   catch(std::invalid_argument& e){
     print_exception_message(e.what());
   }
   cout << SM_DIV;
+  cout << "Diff between 1 and 0:" << endl;
   try{
-    g.diff(1,0);
+    g.diff(1,0);//fix
   }
   catch(std::invalid_argument& e){
     print_exception_message(e.what());
@@ -303,9 +302,8 @@ int main()
   catch(std::invalid_argument& e){
     print_exception_message(e.what());
   }
-
   g.checkout(3);
-  cout << "comm 3:" << endl;
+  cout << "Files in Commit 3:" << endl;
   g.display_all();
 
   cout << "--------------------End Tests---------------------" << endl;
